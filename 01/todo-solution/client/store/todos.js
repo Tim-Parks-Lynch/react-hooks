@@ -15,6 +15,13 @@ const _createTodo = (todo) => {
   };
 };
 
+const _updateTodo = (todo) => {
+  return {
+    type: UPDATE_TODO,
+    todo
+  }
+}
+
 const _deleteTodo = (todo) => {
   return {
     type: DELETE_TODO,
@@ -39,12 +46,31 @@ export const createTodo = (todo, history) => {
   };
 };
 
+export const updateTodo = (todo, history) => {
+  // console.log('updateTodo thunk', todo);
+  return async (dispatch) => {
+    const { data: updated } = await axios.put(`/api/todos/${todo.id}`, todo);
+    // console.log('UPDATE-------------->', updated);
+    dispatch(_updateTodo(updated));
+    history.push('/');
+  };
+};
+
 export const fetchTodos = () => {
   return async (dispatch) => {
     const { data: todos } = await axios.get('/api/todos');
     dispatch(_setTodos(todos));
   };
 };
+
+export const deleteTodo = (id, history) => {
+  return async (dispatch) => {
+    const { data } = await axios.delete(`/api/todos/${id}`);
+    dispatch(_deleteTodo(data));
+    // console.log('history', history)
+    history.push('/');
+  }
+}
 
 export default (state = [], action) => {
   switch (action.type) {
