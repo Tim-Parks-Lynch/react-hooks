@@ -1,15 +1,14 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const Todos = () => {
-  
   //bring in state from store
-  const { todos } = useSelector(state => {
-        return {
-            todos: state.todos
-        }
-  }); 
+  const { todos } = useSelector((state) => {
+    return {
+      todos: state.todos,
+    }
+  })
 
   return (
     <ul>
@@ -21,10 +20,10 @@ const Todos = () => {
             </h2>
             <p>assigned by {todo.assignee}</p>
           </li>
-        );
+        )
       })}
     </ul>
-  );
-};
+  )
+}
 
-export default Todos;
+export default Todos
