@@ -1,6 +1,6 @@
 # React Hooks Workshop
 
-- [@Sey Kim](www.linkedin.com/in/sey-kim)
+- [@Sey Kim](https://linkedin.com/in/sey-kim)
 - [@Savion Sweeney](www.linkedin.com/in/savion-sweeney)
 - [@Danny Lahamar](www.linkedin.com/in/sey-kim)
 
