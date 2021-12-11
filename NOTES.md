@@ -122,8 +122,13 @@ function Form() {
 
 Redux library exposes its API via hooks. Instead of `connect`, `mapStateToProps` and `mapDispatchToProps`, use the hooks `useSelector` and `useDispatch` from the `react-redux` library.
 
-`useDispatch` as you guess it, returns the dispatch method. Usually, you return
+`useDispatch` as you guess it, returns the dispatch method. Usually, you return it via
 
+```js
+const dispatch = useDispatch()
+/* inside a functional component */
+<button onClick={dispatch({...})}>Click</button>
+```
 
 ## `React Router`
 
