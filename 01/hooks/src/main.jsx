@@ -1,14 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import 'virtual:windi.css'
+import './index.css'
 import { Counter, CounterEffect } from './Counters.jsx'
 import { Form } from './Form.jsx'
 
 export default function Main({ children }) {
   return (
     <div>
-      <h1 className="text-center text-4xl mb-8">Main Component</h1>
-      <div className="p-4 border border-pink-200 max-w-400px mx-auto">
+      <h1 className="text-center mb-8 mt-4">React Hooks Demo</h1>
+      <div className="p-4 border border-gray-400 max-w-400px mx-auto">
         {children}
       </div>
     </div>
@@ -18,7 +19,7 @@ export default function Main({ children }) {
 ReactDOM.render(
   <React.StrictMode>
     <Main>
-      <div className="border border-green-300 flex flex-col justify-between h-400px">
+      <div className="p-4 flex flex-col justify-center demo">
         <Counter />
         <CounterEffect />
         <Form />
