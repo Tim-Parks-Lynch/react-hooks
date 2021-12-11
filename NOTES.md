@@ -4,7 +4,7 @@
 
 ![img](/01/hooks/src/imgs/useState.webp)
 
-Import `useState` from the `react` library. Using [destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) syntax, we access state and a setter. 
+Simplest hook of them all. `useState` allows functional components to hold state. Import `useState` from the `react` library. Using [destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) syntax, we access state and a setter. 
 
 A minimal example:
 
@@ -21,21 +21,23 @@ function Counter() {
 }
 ```
 
-Hook resides inside the functional component. By convention, we prefix the second variable with `set`. `setCount` in this case is analogous to `this.setState` function in class components. Note `setCount` only updates the variable `count`. You can call multiple `useState` hooks in a single component (more on that later)
+Define all hooks inside the function scope. By convention, prefix the second variable with `set`. `setCount` in this case is analogous to `this.setState` function in class components. You can call multiple `useState` hooks in a single component (more on that later)
 
 By clicking the button, `count` is incremented by 1. Since state is changed via `setCount`, `<Counter />` rerenders with the new `count`. Works exactly like class components. 
 
+<br />
+
 ## `useEffect`
 
-<!-- replace with img -->
+![img](/01/hooks/src/imgs/useEffect-1.webp)
 
-```js
-useEffect(() => {
-  console.log('useEffect has run!')
-}, [])
-```
+In the simplest cases, you can use `useEffect` to replace `componentDidMount`. It takes in two parameters: a callback function and a dependency array. When the functional component mounts, `useEffect` is run. The empty array signifies that the callback function should run once. 
 
-Contains 2 parameters: a callback function and a dependency array. When the functional component mounts, useEffect is run. The empty array signifies that the callback function should run once. Consider this example:
+![img](/01/hooks/src/imgs/useEffect-2.webp)
+
+In the above example, `count` is included in the dependency array. Therefore, the callback function will run any time `count` changes.
+
+Here is a minimal example:
 
 ```js
 function Counter() {
@@ -60,26 +62,31 @@ function Counter() {
 
 ### The Flow
 
-1. `<Counter />` is mounted, and rendered
-2. `useEffect` runs its callback functions: "useEffect has run!" and count is logged.
+1. `<Counter />` is mounted and rendered to the DOM.
+2. `useEffect` runs its callback functions: `"useEffect has run!"` and `count` is logged.
 3. When the user clicks the button, `count` is incremented
 4. `useEffect` that contains `count` in its dependency array runs its callback function 
 5. `<Counter />` rerenders due to state change
+6. The UI now correctly represents the incremented `count`
 
-Note that the first `useEffect` is only run once, upon mounting of component, which leads to an useful heuristic: `useEffect` with an empty dependency array is analogous to `componentDidMount`.
+Note that the first `useEffect` is only run once, upon mounting of component, which leads to an useful heuristic: 
+
+>`useEffect` with an empty dependency array is analogous to `componentDidMount`.
+
+<br />
 
 ## Multiple `useState`
 
-While technically you can use `useState` to create an object, it does not merge state. 
+If you use `useState` to hold an object, note that it does not merge state (unlike `setState`)
 
 ```js
 const [form, setForm] = useState({name: 'Tom', age: 20})
 
-setForm({name: 'Sam'}) /* 🛑 form will now only have name as key */
-setForm({name: 'Sam', age: form.age}) /* 🟢 form will keep its key/value pairs */
+setForm({name: 'Sam'}) // ❌ age will be deleted
+setForm({name: 'Sam', age: form.age}) // 🟢 correct way
 ```
 
-An obvious solution is to use `useState` with atomic values: a `useState` for `name`, and another `useState` for `age`.
+A solution is to use separate `useState` for each value. 
 
 ```js
 function Form() {
@@ -88,34 +95,36 @@ function Form() {
 
   return (
     <>
-      {name || 'Name'} and {age || '0'} 
-      <input value={name} onChange={() => setName(e.target.value)} />
-      <input value={name} onChange={() => setAge(e.target.value)} />
+      <p>{name}</p>
+      <p>{age}</p>
+      <input name="name" value={name} onChange={() => setName(e.target.value)} />
+      <input name="age" value={name} onChange={() => setAge(e.target.value)} />
     </>
   )
 }
 ```
 
-The flow goes something like this:
+### Flow
 
-1. `<Form />` will be mounted.
-2. `useState` hooks are executed.
-3. JSX reads values from `name` and `age` and is rendered to the DOM.
-4. User types into the first name input field.
+1. `useState` hooks are called, and `<Form />` returns JSX.
+3. `name` and `age` is read from `useState`, and JSX is rendered to the DOM.
+4. User types into the first `name` input field.
 5. For each keystroke, the anonymous callback function runs, calling `setName`.
-6. `<Form />` is rerendered because `name` is changed.
-7. User types into the second age field.
-8. Same steps are repeated.
+6. `<Form />` is rerendered in response to change in `name`.
+7. User types into the second `age` field.
+8. `<Form />` is rerendered in response to change in `age`.
 
-You may imagine when multiple `useStates` are used, especially in complex forms. This is when [`useReducer`](https://reactjs.org/docs/hooks-reference.html#useeffect) comes into play.
+**Bonus**: look into how [`useReducer`](https://reactjs.org/docs/hooks-reference.html#useeffect) can organize multiple `useStates`.
 
-## Redux
+<br />
 
-Redux library exposes its API via hooks. Instead of `connect`, `mapStateToProps` and `mapDispatchToProps`, use `useSelector` and `useDispatch` from the `react-redux` library.
+## `Redux`
+
+Redux library exposes its API via hooks. Instead of `connect`, `mapStateToProps` and `mapDispatchToProps`, use the hooks `useSelector` and `useDispatch` from the `react-redux` library.
 
 `useDispatch` as you guess it, returns the dispatch method. Usually, you return
 
 
-## React Router
+## `React Router`
 
 Similarly, React Router also exposes its API via hooks. The ones relevant to us today are `useLocation`, `useHistory`.
