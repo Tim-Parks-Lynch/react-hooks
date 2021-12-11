@@ -137,6 +137,8 @@ function Redux() {
 }
 ```
 
+No `connect`, no `mapStateToProps`, no `mapDispatchToProps`, no exporting different components. Just import the hooks, call the hooks inside the functional component, and use them when you need 'em. Much simpler right? 
+
 <br />
 
 ## `React Router`
