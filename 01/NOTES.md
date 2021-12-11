@@ -40,6 +40,8 @@ In the above example, `count` is included in the dependency array. Therefore, th
 Here is a minimal example:
 
 ```js
+import { useState, useEffect } from 'react' 
+
 function Counter() {
   const [count, setCount] = useState(0)
 
@@ -128,20 +130,22 @@ A toy example:
 import { useSelector, useDispatch } from 'react-redux'
 
 function Redux() {
-  const count = useSelector(state => state.count) // like mapState, count variable is mapped to state.count
+  const count = useSelector(state => state.count) // like mapStateToProps, count variable is mapped to state.count
   const dispatch = useDispatch() // access dispatch
   
   return (
-    <button onClick={() => dispatch({type: 'INCREMENT'})}>{count}</button> // dispatch action creator in-line
+    <button onClick={() => dispatch({type: 'INCREMENT'})}>{count}</button> // dispatch action
   )
 }
 ```
+
+No `connect`, no `mapStateToProps`, no `mapDispatchToProps`, no exporting different components. Just import the hooks, call the hooks inside the functional component, and use them when you need 'em. Much simpler right? 
 
 <br />
 
 ## `React Router`
 
-Similarly, React Router also exposes its API via hooks. The ones relevant to us are `useLocation`, `useHistory`. As a general rule, import the library-custom hooks from `react-router-dom`, and call them inside the functional component.
+Similarly, React Router also exposes its API via hooks. The ones relevant to us are `useLocation`, `useHistory`. Sanme pattern as before: import the library-custom hooks from `react-router-dom`, and call them inside the functional component.
 
 ```js
 import { useLocation, useHistory } from 'react-router-dom'
