@@ -2,7 +2,7 @@
 
 ## `useState`
 
-![img](/01/hooks/src/imgs/useState.webp)
+![img](./hooks/src/imgs/useState.webp)
 
 Simplest hook of them all. `useState` allows functional components to hold state. Import `useState` from the `react` library. Using [destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) syntax, we access state and a setter. 
 
@@ -29,11 +29,11 @@ By clicking the button, `count` is incremented by 1. Since state is changed via 
 
 ## `useEffect`
 
-![img](/01/hooks/src/imgs/useEffect-1.webp)
+![img](./hooks/src/imgs/useEffect-1.webp)
 
 In the simplest cases, you can use `useEffect` to replace `componentDidMount`. It takes in two parameters: a callback function and a dependency array. When the functional component mounts, `useEffect` is run. The empty array signifies that the callback function should run once. 
 
-![img](/01/hooks/src/imgs/useEffect-2.webp)
+![img](./hooks/src/imgs/useEffect-2.webp)
 
 In the above example, `count` is included in the dependency array. Therefore, the callback function will run any time `count` changes.
 
@@ -137,6 +137,20 @@ function Redux() {
 }
 ```
 
+<br />
+
 ## `React Router`
 
-Similarly, React Router also exposes its API via hooks. The ones relevant to us today are `useLocation`, `useHistory`.
+Similarly, React Router also exposes its API via hooks. The ones relevant to us are `useLocation`, `useHistory`. As a general rule, import the library-custom hooks from `react-router-dom`, and call them inside the functional component.
+
+```js
+import { useLocation, useHistory } from 'react-router-dom'
+
+function App() {
+  // if you need to use location or history, simply invoke the hooks
+  const location = useLocation()
+  const history = useHistory()
+  
+  // you now have access to the React router's location and history object 
+}
+```
