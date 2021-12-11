@@ -130,11 +130,11 @@ A toy example:
 import { useSelector, useDispatch } from 'react-redux'
 
 function Redux() {
-  const count = useSelector(state => state.count) // like mapState, count variable is mapped to state.count
+  const count = useSelector(state => state.count) // like mapStateToProps, count variable is mapped to state.count
   const dispatch = useDispatch() // access dispatch
   
   return (
-    <button onClick={() => dispatch({type: 'INCREMENT'})}>{count}</button> // dispatch action creator in-line
+    <button onClick={() => dispatch({type: 'INCREMENT'})}>{count}</button> // dispatch action
   )
 }
 ```
