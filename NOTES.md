@@ -2,20 +2,15 @@
 
 ## `useState`
 
+![img](/01/hooks/src/imgs/useState.webp)
+
 Import `useState` from the `react` library. Using [destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) syntax, we access state and a setter. 
 
 A minimal example:
 
 ```js
-const [count, setCount] = useState(0) 
-// usually, useState is called with a default value. In this case, count set to 0
-```
-
-Hook resides inside the functional component. By convention, we prefix the second variable with `set`. `setCount` in this case is analogous to `this.setState` function in class components. Note `setCount` only updates the variable `count`. You can call multiple `useState` hooks in a single component (more on that later)
-
-```js
 function Counter() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0) 
 
   return (
     <div>
@@ -26,11 +21,13 @@ function Counter() {
 }
 ```
 
+Hook resides inside the functional component. By convention, we prefix the second variable with `set`. `setCount` in this case is analogous to `this.setState` function in class components. Note `setCount` only updates the variable `count`. You can call multiple `useState` hooks in a single component (more on that later)
+
 By clicking the button, `count` is incremented by 1. Since state is changed via `setCount`, `<Counter />` rerenders with the new `count`. Works exactly like class components. 
 
 ## `useEffect`
 
-Example below is analogous to `componentDidMount`:
+<!-- replace with img -->
 
 ```js
 useEffect(() => {
@@ -38,7 +35,7 @@ useEffect(() => {
 }, [])
 ```
 
-Its parameters are a callback function and a dependency array. When the functional component mounts, the callback function is run once. The empty array signifies that the callback function should run once. Consider this example:
+Contains 2 parameters: a callback function and a dependency array. When the functional component mounts, useEffect is run. The empty array signifies that the callback function should run once. Consider this example:
 
 ```js
 function Counter() {
@@ -46,6 +43,10 @@ function Counter() {
 
   useEffect(() => {
     console.log('useEffect has run!')
+  }, [])
+
+  useEffect(() => {
+    console.log('count:', count)
   }, [count])
 
   return (
@@ -59,16 +60,13 @@ function Counter() {
 
 ### The Flow
 
-1. Counter is mounted
-2. Callback in `useEffect` is run
-3. When the user clicks on the button, `setCount` passes in the current `count` + 1
-4. `count` state is updated
-5. `<Counter />` rerenders
-6. Since `count` is in the dependency array, `useEffect` is run per `count` change
+1. `<Counter />` is mounted, and rendered
+2. `useEffect` runs its callback functions: "useEffect has run!" and count is logged.
+3. When the user clicks the button, `count` is incremented
+4. `useEffect` that contains `count` in its dependency array runs its callback function 
+5. `<Counter />` rerenders due to state change
 
-**Try to take out count in the dependency array and observe what happens**
-
-A general rule of thumb: `useEffect` with an empty dependency array is analogous to `componentDidMount`.
+Note that the first `useEffect` is only run once, upon mounting of component, which leads to an useful heuristic: `useEffect` with an empty dependency array is analogous to `componentDidMount`.
 
 ## Multiple `useState`
 
