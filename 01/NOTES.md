@@ -40,7 +40,7 @@ In the above example, `count` is included in the dependency array. Therefore, th
 Here is a minimal example:
 
 ```js
-import { useState } from 'react' 
+import { useState, useEffect } from 'react' 
 
 function Counter() {
   const [count, setCount] = useState(0)
