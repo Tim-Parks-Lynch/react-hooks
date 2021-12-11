@@ -122,13 +122,15 @@ function Form() {
 
 Redux library exposes its API via hooks. Instead of `connect`, `mapStateToProps` and `mapDispatchToProps`, use the hooks `useSelector` and `useDispatch` from the `react-redux` library.
 
+A toy example:
+
 ```js
 function Redux() {
-  const count = useSelector(state => state.count)
-  const dispatch = useDispatch()
+  const count = useSelector(state => state.count) // like mapState, count variable is mapped to state.count
+  const dispatch = useDispatch() // access dispatch
   
   return (
-    <button onClick={() => dispatch({type: 'INCREMENT'})}>{count}</button>
+    <button onClick={() => dispatch({type: 'INCREMENT'})}>{count}</button> // dispatch action creator in-line
   )
 }
 ```
