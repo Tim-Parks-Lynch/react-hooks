@@ -9,6 +9,8 @@ Simplest hook of them all. `useState` allows functional components to hold state
 A minimal example:
 
 ```js
+import { useState } from 'react'
+
 function Counter() {
   const [count, setCount] = useState(0) 
 
