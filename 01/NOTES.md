@@ -143,7 +143,7 @@ No `connect`, no `mapStateToProps`, no `mapDispatchToProps`, no exporting differ
 
 ## `React Router`
 
-Similarly, React Router also exposes its API via hooks. The ones relevant to us are `useLocation`, `useHistory`. As a general rule, import the library-custom hooks from `react-router-dom`, and call them inside the functional component.
+Similarly, React Router also exposes its API via hooks. The ones relevant to us are `useLocation`, `useHistory`. Sanme pattern as before: import the library-custom hooks from `react-router-dom`, and call them inside the functional component.
 
 ```js
 import { useLocation, useHistory } from 'react-router-dom'
