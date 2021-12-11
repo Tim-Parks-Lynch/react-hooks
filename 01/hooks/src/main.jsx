@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Counter, CounterEffect } from './Counters.jsx'
 import 'virtual:windi.css'
+import { Counter, CounterEffect } from './Counters.jsx'
+import { Form } from './Form.jsx'
 
 export default function Main({ children }) {
   return (
@@ -20,6 +21,7 @@ ReactDOM.render(
       <div className="border border-green-300 flex flex-col justify-between h-400px">
         <Counter />
         <CounterEffect />
+        <Form />
       </div>
     </Main>
   </React.StrictMode>,

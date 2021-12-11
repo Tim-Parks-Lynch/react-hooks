@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export const Counter = () => {
+function Counter() {
   const [count, setCount] = useState(0)
 
   return (
@@ -17,7 +17,7 @@ export const Counter = () => {
   )
 }
 
-export const CounterEffect = () => {
+function CounterEffect() {
   const [count, setCount] = useState(0)
 
   useEffect(() => {
@@ -38,3 +38,5 @@ export const CounterEffect = () => {
     </div>
   )
 }
+
+export { Counter, CounterEffect }
