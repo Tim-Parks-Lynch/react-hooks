@@ -125,6 +125,8 @@ Redux library exposes its API via hooks. Instead of `connect`, `mapStateToProps`
 A toy example:
 
 ```js
+import { useSelector, useDispatch } from 'react-redux'
+
 function Redux() {
   const count = useSelector(state => state.count) // like mapState, count variable is mapped to state.count
   const dispatch = useDispatch() // access dispatch
