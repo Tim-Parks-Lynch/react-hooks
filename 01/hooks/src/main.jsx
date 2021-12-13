@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom'
 import 'virtual:windi.css'
 import './index.css'
 import { Counter, CounterEffect } from './Counters.jsx'
-import { Form } from './Form.jsx'
+import { Form, FormReducer } from './Form.jsx'
+import { useDarkMode } from './DarkMode.jsx'
 
 export default function Main({ children }) {
+  const { theme } = useDarkMode()
   return (
     <div>
       <h1 className="text-center mb-8 mt-4">React Hooks Demo</h1>
@@ -23,6 +25,7 @@ ReactDOM.render(
         <Counter />
         <CounterEffect />
         <Form />
+        <FormReducer />
       </div>
     </Main>
   </React.StrictMode>,
