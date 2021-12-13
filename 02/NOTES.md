@@ -1,6 +1,14 @@
 # Hooks II
 
-Refactoring the [fs-app-template](https://github.com/FullstackAcademy/fs-app-template)
+## Refactoring `fs-app-template`
+
+Original [fs-app-template](https://github.com/FullstackAcademy/fs-app-template)
+
+Read through the diffs to see the side-by-side comparison.
 
 ![img](./img/refactor2.png)
 ![img](./img/refactor1.png)
+
+## Custom Hooks
+
+Using hooks allow us more flexibility in encapsulating our own logic. We can abstract complex UI logic into modules that we export and import, just like other any other component or libraries.
