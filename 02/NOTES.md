@@ -1,5 +1,6 @@
 # Hooks II
 
-## `useReducer`
+Refactoring the Boilerplate
 
-## Custom Hooks
+![img](./img/refactor1.png)
+![img](./img/refactor2.png)
