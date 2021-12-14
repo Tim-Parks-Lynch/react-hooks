@@ -8,10 +8,12 @@ Read through the diffs to see the side-by-side comparison.
 
 <details>
   <summary>Refactoring</summary>
+  
 ![img](./img/refactor2.png)
 </details>
 <details>
   <summary>Refactoring</summary>
+  
 ![img](./img/refactor1.png)
 </details>
 
