@@ -6,10 +6,8 @@ import { useDispatch, useSelector } from 'react-redux'
 
 const EditTodo = () => {
   //brings in state from store
-  const { todo } = useSelector((state) => {
-    return {
-      todo: state.todo,
-    }
+  const todo = useSelector((state) => {
+    return state.todo
   })
 
   //brings in actions from store
@@ -26,6 +24,10 @@ const EditTodo = () => {
   const [taskName, setTaskName] = useState('')
   const [assignee, setAssignee] = useState('')
 
+  //checking what local state looks like:
+  console.log('taskName:', taskName)
+  console.log('assignee:', assignee)
+
   //submitting changes to task
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -39,8 +41,11 @@ const EditTodo = () => {
 
   //componentDidUpdate updates local state
   useEffect(() => {
-    setTaskName(todo.taskName)
-    setAssignee(todo.assignee)
+    //when the component mounts todo is just an empty object from the store, there is no todo.taskName and todo.assignee yet, after the first useEffect runs it populates the todo object
+    if (todo.taskName && todo.assignee) {
+      setTaskName(todo.taskName);
+      setAssignee(todo.assignee);
+    }
   }, [todo])
 
   return (
@@ -55,14 +60,13 @@ const EditTodo = () => {
         <input
           name="taskName"
           onChange={(e) => setTaskName(e.target.value)}
-          value={taskName || ''}
+          value={taskName}
         />{' '}
-        {/* if taskName is undefined set it to empty string, for some reason localstate starts as empty string then becomes undefined then gets set to the value from the store. I am still not sure why it becomes undefined at one point, maybe a delay from the backend? */}
         <label htmlFor="assignee">Assign To:</label>
         <input
           name="assignee"
           onChange={(e) => setAssignee(e.target.value)}
-          value={assignee || ''}
+          value={assignee}
         />{' '}
         {/* same as above but for assignee */}
         <button type="submit" disabled={!taskName || !assignee}>

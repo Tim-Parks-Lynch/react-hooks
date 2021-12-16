@@ -4,10 +4,8 @@ import { useSelector } from 'react-redux'
 
 const Todos = () => {
   //bring in state from store
-  const { todos } = useSelector((state) => {
-    return {
-      todos: state.todos,
-    }
+  const todos = useSelector((state) => {
+    return state.todos
   })
 
   return (
