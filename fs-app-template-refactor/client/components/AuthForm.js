@@ -104,14 +104,6 @@ const AuthForm = () => {
     setFormName(location.pathname.slice(1));
   }, [location]);
 
-  //checking to see what state looks like
-  const check = {
-    formName,
-    error
-  }
-  console.log('check', check)
-  ////////////////////////////////////
-
   //we need a handle submit function to handle the form submission because of what happens when you submit a form, we need to stop the default behavior of the form which is to refresh the page
   const handleSubmit = (e) => {
     e.preventDefault();
