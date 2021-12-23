@@ -75,10 +75,9 @@
 
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useLocation } from 'react-router-dom';
 import {authenticate} from '../store';
 
-const AuthForm = () => {
+const AuthForm = ({ formName }) => {
   //the only thing we need from the store is the error so we get that using useSelector
   const { error } = useSelector
   (state => {
@@ -89,19 +88,10 @@ const AuthForm = () => {
 
   //getting the actions from the store
   const dispatch = useDispatch();
-  
-  //accessing location via the useLocation hook in order for us to define our formName
-  const location = useLocation();
 
   //local state for editing
-  const [formName, setFormName] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
-  //componentDidMount + componentDidUpdate, sets the formName to the location.pathname every time location is updated
-  useEffect(() => {
-    setFormName(location.pathname.slice(1));
-  }, [location]);
 
   //we need a handle submit function to handle the form submission because of what happens when you submit a form, we need to stop the default behavior of the form which is to refresh the page
   const handleSubmit = (e) => {
