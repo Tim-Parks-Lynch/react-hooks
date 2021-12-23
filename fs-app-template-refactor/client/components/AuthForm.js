@@ -82,7 +82,6 @@ const AuthForm = () => {
   //the only thing we need from the store is the error so we get that using useSelector
   const { error } = useSelector
   (state => {
-    console.log('state', state)
     return {
       error: state.auth.error
     }

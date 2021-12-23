@@ -29,11 +29,8 @@ export const me = () => async dispatch => {
 }
 
 export const authenticate = (username, password, method) => async dispatch => {
-  console.log('outside try block')
   try {
-    console.log('in authenticate', username, password, method)
     const res = await axios.post(`/auth/${method}`, {username, password})
-    console.log('in store', res)
     window.localStorage.setItem(TOKEN, res.data.token)
     dispatch(me())
   } catch (authError) {
