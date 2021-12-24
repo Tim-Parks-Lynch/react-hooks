@@ -5,7 +5,7 @@ Recorded Lecture
 2. [▶️](https://www.youtube.com/watch?v=PUPKNlwsMbM&t=0s)
 
 
-![figma]("./imgs/ss 1.png")
+![figma](./imgs/ss 1.png)
 
 Connect with us:
 
