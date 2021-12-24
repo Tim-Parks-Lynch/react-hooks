@@ -1,8 +1,8 @@
 # React Hooks Workshop
 
 Recorded Lecture 
-- 1. [▶️](https://www.youtube.com/watch?v=mkvhikFmA5c)
-- 2. [▶️](https://www.youtube.com/watch?v=PUPKNlwsMbM&t=0s)
+1. [▶️](https://www.youtube.com/watch?v=mkvhikFmA5c)
+2. [▶️](https://www.youtube.com/watch?v=PUPKNlwsMbM&t=0s)
 
 Connect with us:
 
