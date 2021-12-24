@@ -4,7 +4,7 @@ Recorded Lecture
 1. [▶️](https://www.youtube.com/watch?v=mkvhikFmA5c)
 2. [▶️](https://www.youtube.com/watch?v=PUPKNlwsMbM&t=0s)
 
-![img]("./imgs/ss 1.png")
+![img](./imgs/ss%201.png)
 
 Connect with us:
 
