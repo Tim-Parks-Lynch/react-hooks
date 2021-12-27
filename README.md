@@ -8,12 +8,17 @@ This repository is divided into two directories: `01` and `02`. Simply `cd 01/ (
 
 ## Topics
 
-- Refactoring from class components to functional components
-- Demo of individual hooks: useState, useEffect, useReducer
-- Using redux-react and react-router's hooks
-- Custom hooks
+- Refactoring class components to functional components
+- Demo of individual hooks: `useState`, `useEffect`, `useReducer`, `useContext`
+- Using hooks with `redux-react` and `react-router`
+- Walkthrough of a fullstack boiler plate app, and live refactoring
+- Building your own hooks: implement dark mode!
 
 ## Workshop 
+
+![video](hooks-2.gif)
+
+Brainstorming for the workshop was done with FigJam. We prepared slides, and carefully considered which projects to live refactor, and which concepts to showcase individually.
 
 ![img](./imgs/ss%201.png)
 
