@@ -29,7 +29,7 @@ Brainstorming for the workshop was done with FigJam. We prepared slides, and car
 Students were given notes to pre-read as well as follow along the lectures. This helped especially with the live demo.
 
 ![readme1](./imgs/readme_1.png)
-![readme2](./imgs/readme_1.png)
+![readme2](./imgs/readme_2.png)
 
 ## Connect with us:
 
