@@ -26,13 +26,10 @@ Brainstorming for the workshop was done with FigJam. We prepared slides, and car
 
 ![img](./imgs/ss%201.png)
 
-Students were given notes to pre-read as well as follow along the lectures. This helped especially with the live demo.
+Students were given notes for pre-reading as well as a legend for the live coding demonstrations.
 
 ![readme1](./imgs/readme_1.png)
 ![readme2](./imgs/readme_2.png)
-
-## Connect with us:
-
 
 
 
